@@ -1,5 +1,6 @@
 
 
+
 const loadcategories = () => {
     fetch("https://fakestoreapi.com/products/categories")  // promise of response
         .then(res => res.json()) //promise of json data
@@ -18,7 +19,7 @@ const displayProductDetail = (product) => {
     const detailsBox = document.getElementById("details-container");
     detailsBox.innerHTML = `
                     <div class="grid grid-cols-1 md: grid-cols-2 gap-8">
-                        <img class="" src="${product.image}" alt="">
+                        <img class="my-auto" src="${product.image}" alt="">
                         <div>
                             <p class="font-light text-sm text-sky-400">${product.category}</p>
                             <h2 class="font-bold text-xl py-5">${product.title}</h2>
@@ -33,7 +34,7 @@ const displayProductDetail = (product) => {
                                 <span class="text-sm text-gray-500 font-medium">${product.rating.rate} (${product.rating.count})</span>
                             </div>
                             <p class="font-light text-sm">${product.description}</p>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between pt-5">
                                 <h2 class ="">$${product.price}</h2>
                                 <button class="btn btn-primary">Add To Cart</button>
                             </div>
@@ -42,6 +43,53 @@ const displayProductDetail = (product) => {
       `;
     document.getElementById("product_modal").showModal();
 };
+const loadTrendingProducts = () => {
+    const url = ("https://fakestoreapi.com/products");
+    fetch (url)
+    .then(res => res.json())
+    // .then((json) => displayTrendingProducts(json))
+    .then((json) => {
+        const filtered = json.filter(product => product.rating.rate >= 4);
+        const topThree =filtered.slice (0,3);
+        // const topThree =threeProducts.slice(0,3);
+        displayTrendingProducts(topThree);
+
+    } )
+   
+}
+const displayTrendingProducts = (products) =>{
+    const container = document.getElementById("trending-container");
+    container.innerHTML ="";
+    products.forEach(products => {
+        const div = document.createElement("div");
+        div.innerHTML = `
+            <div class="bg-white rounded-xl shadow-sm py-10 px-5 space-y-4">
+                    <p class="font-light text-sm text-sky-400">${products.category}</p>
+                    <img class="w-40 h-40 mx-auto" src="${products.image}" alt="">
+                    <h2 class="font-medium text-xl">${products.title}</h2>
+                        <div class="flex items-center gap-2 mb-6">
+                                <div class="flex text-amber-400">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                   <i class="fa-solid fa-half-stroke"></i>
+                                   <i class="fa-solid fa-half-stroke"></i>
+                                </div>
+                                <span class="text-sm text-gray-500 font-medium">${products.rating.rate} (${products.rating.count})</span>
+                        </div>
+                    <div class="flex justify-between items-stretch">
+                        <h1 class="font-bold text-black-400 text-2xl">$${products.price}</h1>
+                        <div>
+                            <button onclick="loadProductDetail(${products.id})" class="btn" href=""><i class="fa-solid fa-eye"></i></button>
+                            <button class="btn" href=""><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+        `;
+        container.append(div);
+    })
+}
 const loadAllProducts = () => {
     const url = ("https://fakestoreapi.com/products")
     //console.log(url)
@@ -99,11 +147,25 @@ const displayAllProducts = (products) => {
                     </div>
                 </div>
         `;
+        loadingSpinner(false);
         productsContanner.append(card);
     })
 
 }
+
+const loadingSpinner=(status)=>{
+    if(status === true) {
+        document.getElementById("loading").classList.remove("hidden");
+        document.getElementById("products-contanner").classList.add("hidden");
+    } else{
+        document.getElementById("products-contanner").classList.remove("hidden");
+        document.getElementById("loading").classList.add("hidden");
+    }
+}
+
+
 const loadCatgoryProducts = (category) => {
+    loadingSpinner (true);
     fetch(`https://fakestoreapi.com/products/category/${category}`)
         // fetch("https://fakestoreapi.com/products/category/${category}")
         .then(res => res.json())
@@ -135,6 +197,8 @@ const displaycategory = (categories) => {
         `;
         btnAll.append(btnDiv)
     }
+    loadingSpinner(false);
 }
 loadcategories();
 loadAllProducts();
+loadTrendingProducts();

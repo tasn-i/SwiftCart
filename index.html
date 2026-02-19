@@ -37,9 +37,9 @@
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal px-1">
-                        <li><a class="hover:text-sky-400" href="./index.html">Home</a></li>
-                        <li><a class="hover:text-sky-400" href="./product.html">Products</a></li>
-                        <li><a class="hover:text-sky-400" href="#">About</a></li>
+                        <li><a class="hover:text-sky-400 " href="./index.html">Home</a></li>
+                        <li><a class="hover:text-sky-400 " href="./product.html">Products</a></li>
+                        <li><a class="hover:text-sky-400 " href="#">About</a></li>
                         <li><a class="hover:text-sky-400" href="#">Contact</a></li>
                     </ul>
                 </div>
@@ -55,10 +55,10 @@
                         </div>
                         <ul tabindex="-1"
                             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a class="hover:text-sky-400" href="./index.html">Home</a></li>
-                            <li><a class="hover:text-sky-400" href="./product.html">Products</a></li>
-                            <li><a class="hover:text-sky-400" href="#">About</a></li>
-                            <li><a class="hover:text-sky-400" href="#">Contact</a></li>
+                            <li><a class="hover:text-sky-400 " href="./index.html">Home</a></li>
+                            <li><a class="hover:text-sky-400 " href="./product.html">Products</a></li>
+                            <li><a class="hover:text-sky-400 " href="#">About</a></li>
+                            <li><a class="hover:text-sky-400 " href="#">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -89,35 +89,35 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20 pt-10">
                 <div class="p-5 rounded-2xl bg-base-100 hover:shadow-lg text-center">
-                    <div class="w-15 h-14 bg-gray-50 hover:shadow-lg flex items-center justify-center gap-5 mx-auto">
-                        <a class="" href=""><i class="fa-solid fa-cart-flatbed"></i></a>
+                    <div class="w-15 h-14 bg-gray-100 hover:shadow-lg flex items-center justify-center gap-5 mx-auto">
+                        <a class =" text-2x text-sky-400" href=""><i class="fa-solid fa-cart-flatbed"></i></a>
                     </div>
-                    <h2 class="text-lg font-semibold mb-3">Fast Delivery</h2>
+                    <h2 class="text-lg font-semibold my-4">Fast Delivery</h2>
                     <p class="text-gray-600 text-sm">Lightning fast delivery at your doorstep within 2-3 days</p>
                 </div>
 
                 <div class="p-5 rounded-2xl bg-base-100 hover:shadow-lg text-center">
-                    <div class="w-15 h-14 bg-gray-50 hover:shadow-lg flex items-center justify-center gap-5 mx-auto">
-                        <a class="" href=""><i class="fa-solid fa-headset"></i></a>
+                    <div class="w-15 h-14 bg-gray-100 hover:shadow-lg flex items-center justify-center gap-5 mx-auto">
+                        <a class =" text-2x text-sky-400" href=""><i class="fa-solid fa-headset"></i></a>
                     </div>
-                    <h2 class="text-lg font-semibold mb-3">24/7 Support</h2>
+                    <h2 class="text-lg font-semibold my-4">24/7 Support</h2>
                     <p class="text-gray-600 text-sm">Round the clock assistance for any of your queries.</p>
                 </div>
 
 
                 <div class="p-5 rounded-2xl bg-base-100 hover:shadow-lg text-center">
-                    <div class="w-15 h-14 bg-gray-50 hover:shadow-lg flex items-center justify-center gap-5 mx-auto">
-                        <a class="" href=""><i class="fa-solid fa-shield"></i></a>
+                    <div class="w-15 h-14 bg-gray-100 hover:shadow-lg flex items-center justify-center gap-5 mx-auto">
+                        <a class =" text-2x text-sky-400" href=""><i class="fa-solid fa-shield"></i></a>
                     </div>
-                    <h2 class="text-lg font-semibold mb-3">Secure Payment</h2>
+                    <h2 class="text-lg font-semibold my-4">Secure Payment</h2>
                     <p class="text-gray-600 text-sm">100% secure payment methods trusted by millions.</p>
                 </div>
 
                 <div class="p-5 rounded-2xl bg-base-100 hover:shadow-lg text-center">
-                    <div class="w-15 h-14 bg-gray-50 hover:shadow-lg flex items-center justify-center gap-5 mx-auto">
-                        <a class="" href=""><i class="fa-solid fa-arrows-rotate"></i></a>
+                    <div class="w-15 h-14 bg-gray-100 hover:shadow-lg flex items-center justify-center gap-5 mx-auto">
+                        <a class =" text-2x text-sky-400" href=""><i class="fa-solid fa-arrows-rotate"></i></a>
                     </div>
-                    <h2 class="text-lg font-semibold mb-3">Easy Returns</h2>
+                    <h2 class="text-lg font-semibold my-4">Easy Returns</h2>
                     <p class="text-gray-600 text-sm">30-day return policy for a hassle-free shopping experience.</p>
                 </div>
 
@@ -133,9 +133,27 @@
                     <a class="text-primary font-semibold hover:underline" href="./product.html"> View ALL <i
                             class="fa-solid fa-right-long"></i> </a>
                 </div>
-                <div id="trending-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+                <div id="trending-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
 
             </div>
+
+            <dialog id="product_modal" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+
+                    <div id="details-container" class="">
+
+                    </div>
+
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+
+
         </section>
         <!-- Trending ended -->
 
@@ -181,7 +199,7 @@
                         <fieldset class="w-80">
                             <!-- <label>Enter your email address</label> -->
                             <div class="join">
-                                <input type="text" placeholder="Enter your email"
+                                <input type="email" placeholder="Enter your email"
                                     class="input input-bordered join-item" />
                                 <button class="btn btn-primary join-item">Subscribe</button>
                             </div>

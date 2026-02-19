@@ -74,33 +74,19 @@
         </div>
 
         <div id="categories-contanner"></div>
+
+        <!-- Loading spinner starts here -->
+
+          <section id="loading" class="flex justify-center items-center py-10 hidden">
+            <span class="loading loading-spinner text-primary"></span>
+          </section>
+           
+        <!-- Loading spinner ended -->
+
+
         <div id="products-contanner"
             class="bg-gray-100 p-10 w-10/12 mx-auto my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
         </div>
-
-        <!-- <div>
-            <div class="flex gap-5 flex-wrap justify-center py-5">
-                <a class="btn btn-outline btn-primary rounded-4xl" href="">All</a>
-                <a class="btn btn-outline btn-primary rounded-4xl" href="">electronics</a>
-                <a class="btn btn-outline btn-primary rounded-4xl" href="">jewelery</a>
-                <a class="btn btn-outline btn-primary rounded-4xl" href="">men's clothing</a>
-                <a class="btn btn-outline btn-primary rounded-4xl" href="">women's clothing</a>
-            </div>
-        </div> -->
-
-        <div class="flex items-center gap-2 mb-6">
-            <div class="flex text-amber-400">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-half-stroke"></i>
-            </div>
-            <span class="text-sm text-gray-500 font-medium">${product.rating.rate} (${product.rating.count}
-                reviews)</span>
-        </div>
-
 
         <!-- Open the modal using ID.showModal() method -->
         <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
@@ -120,7 +106,6 @@
                 </div>
             </div>
         </dialog>
-
 
     </section>
     <!-- Products Section ended -->
